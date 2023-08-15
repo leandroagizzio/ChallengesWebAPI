@@ -8,7 +8,7 @@ namespace ChallengesWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChallengeController : BaseController
+    public partial class ChallengeController : BaseController
     {
 
         public ChallengeController(
@@ -23,35 +23,6 @@ namespace ChallengesWebAPI.Controllers
             return Ok(GetAllChallenges());
         }
 
-        [HttpPost("EqualRowColumnPairs")]
-        public IActionResult EqualRowColumnPairs([FromBody] EqualRowColumnPairsInput input) {
-            return ProcessChallenge<int>(new EqualRowColumnPairsChallenge(input), input);
-        }
-
-        [HttpGet("EqualRowColumnPairs")]
-        public IActionResult GetEqualRowColumnPairs() {
-            return GetChallengeExecutions(new EqualRowColumnPairsChallenge());
-        }
-
-        [HttpPost("AddTwoNumbersLinkedList")]
-        public IActionResult AddTwoNumbersLinkedList([FromBody] AddTwoNumbersLinkedListInput input) {
-            return ProcessChallenge<ListNode>(new AddTwoNumbersLinkedListChallenge(input), input);
-        }
-
-        [HttpGet("AddTwoNumbersLinkedList")]
-        public IActionResult GetAddTwoNumbersLinkedList() {
-            return GetChallengeExecutions(new AddTwoNumbersLinkedListChallenge());
-        }
-
-        [HttpPost("SubarrayAverages")]
-        public IActionResult SubarrayAverages([FromBody] SubarrayAveragesInput input) {
-            return ProcessChallenge<int[]>(new SubarrayAveragesChallenge(input), input);
-        }
-
-        [HttpGet("SubarrayAverages")]
-        public IActionResult GetSubarrayAverages() {
-            return GetChallengeExecutions(new SubarrayAveragesChallenge());
-        }
 
         //[HttpGet("GetChallenge")]
         //public IActionResult GetChall([FromQuery] string challengeName) {
