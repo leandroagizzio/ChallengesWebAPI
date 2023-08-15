@@ -1,6 +1,7 @@
 ﻿using ChallengesWebAPI.Challenges.Challenges.AddTwoNumbersLinkedList;
 using ChallengesWebAPI.Challenges.Challenges.EqualRowColumnPairs;
 using ChallengesWebAPI.Challenges.Challenges.SubarrayAverages;
+using ChallengesWebAPI.Challenges.Challenges.TextJustification;
 using ChallengesWebAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,6 +44,16 @@ namespace ChallengesWebAPI.Controllers.PartialChallenges
         [HttpGet("SubarrayAverages")]
         public IActionResult GetSubarrayAverages() {
             return GetChallengeExecutions(new SubarrayAveragesChallenge());
+        }
+        
+        [HttpPost("TextJustification")]
+        public IActionResult TextJustification([FromBody] TextJustificationInput input) {
+            return ProcessChallenge<IList<string>>(new TextJustificationChallenge(input), input);
+        }
+
+        [HttpGet("TextJustification")]
+        public IActionResult GetTextJustification() {
+            return GetChallengeExecutions(new TextJustificationChallenge());
         }
 
     }

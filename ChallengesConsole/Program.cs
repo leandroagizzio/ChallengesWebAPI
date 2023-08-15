@@ -32,23 +32,23 @@ namespace ChallengesConsole
             // net7 deb bin CWebAPI
             //       ../../../../ChallengesWebAPI/ChallengesWebAPI.db
 
-            var banco = new AppDbContext(
-                (
-                    (new DbContextOptionsBuilder<AppDbContext>())
-                        //.UseSqlite(connectionString: "DataSource=C:\\dev\\ChallengesWebAPI\\ChallengesWebAPI/ChallengesWebAPI.db;Cache=Shared")
-                        .UseSqlite(connectionString: "DataSource=../../../../ChallengesWebAPI/ChallengesWebAPI.db;Cache=Shared")
-                ).Options
-                );
+            //var banco = new AppDbContext(
+            //    (
+            //        (new DbContextOptionsBuilder<AppDbContext>())
+            //            //.UseSqlite(connectionString: "DataSource=C:\\dev\\ChallengesWebAPI\\ChallengesWebAPI/ChallengesWebAPI.db;Cache=Shared")
+            //            .UseSqlite(connectionString: "DataSource=../../../../ChallengesWebAPI/ChallengesWebAPI.db;Cache=Shared")
+            //    ).Options
+            //    );
 
-            var desafio = banco.Challenges.FirstOrDefault();
-            var lista = banco.Executions.Where(e => e.ChallengeId == desafio.Id).ToList();
+            //var desafio = banco.Challenges.FirstOrDefault();
+            //var lista = banco.Executions.Where(e => e.ChallengeId == desafio.Id).ToList();
 
-            var desafioDto = HelperFactory.GetChallengeDto().CopyToMe(desafio);
-            var listaDto = lista.Select(e => HelperFactory.GetExecutionDto().CopyToMe(e)).ToList();
-            desafioDto.Executions = listaDto;
-            ;
+            //var desafioDto = HelperFactory.GetChallengeDto().CopyToMe(desafio);
+            //var listaDto = lista.Select(e => HelperFactory.GetExecutionDto().CopyToMe(e)).ToList();
+            //desafioDto.Executions = listaDto;
+            //;
 
-            var y = 10;
+            //var y = 10;
 
             ////var challengeDto = banco.Challenges.Select(c => new { c.Name, c.Link }).ToList();
             //var challengesDto = banco.Challenges.Select(c => 
@@ -77,7 +77,9 @@ namespace ChallengesConsole
 
             //new AddTwoNumbersLinkedListConsole();
 
-            new SubarrayAveragesConsole();
+            //new SubarrayAveragesConsole();
+
+            new TextJustificationConsole();
 
             Console.WriteLine("Hello, World!");
         }
